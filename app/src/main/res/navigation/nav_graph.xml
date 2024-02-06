@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.app.moviecenter.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_reviewsFragment"
+            app:destination="@id/reviewsFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.app.moviecenter.profile.ProfileFragment"
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_newReviewFragment"
+            app:destination="@id/newReviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="com.app.moviecenter.reviews.ReviewsFragment"
+        android:label="ReviewFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_newReviewFragment"
+            app:destination="@id/newReviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myReviewsFragment"
+        android:name="com.app.moviecenter.reviews.MyReviewsFragment"
+        android:label="MyReviewFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_newReviewFragment"
+            app:destination="@id/newReviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.app.moviecenter.singup.SignUpFragment"
+        android:label="SignupFragment">
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newReviewFragment"
+        android:name="com.app.moviecenter.reviews.NewReviewFragment"
+        android:label="NewReviewFragment" />
+</navigation>

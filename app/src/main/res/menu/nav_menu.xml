@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/primary_group">
+        <item
+            android:id="@+id/profileFragment"
+            android:icon="@drawable/profile_icon"
+            android:title="@string/profileString"
+        />
+        <item
+            android:id="@+id/reviewsFragment"
+            android:icon="@drawable/feed_icon"
+            android:title="@string/reviewsFeedString"
+        />
+    </group>
+    <group android:id="@+id/second_group">
+        <item
+            android:id="@+id/myReviewsFragment"
+            android:icon="@drawable/feed_icon"
+            android:title="@string/nyReviewsFeedString"
+            />
+        <item
+            android:id="@+id/LogoutFragment"
+            android:icon="@drawable/logout"
+            android:title="@string/logout_string" />
+    </group>
+</menu>

@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">MovieCenter</string>
+    <string name="app_name_with_space">Movie Center</string>
+    <string name="emailHintSignUp">Email</string>
+    <string name="passwordHintSignUp">Password</string>
+    <string name="signUpString">New Account</string>
+    <string name="welcomeString">Welcome</string>
+    <string name="loginString">Login</string>
+    <string name="invalidCreds">Invalid Credentials</string>
+    <string name="navigation_drawer_open">close\n</string>
+    <string name="navigation_drawer_close">open</string>
+    <string name="header_title">Movie Center</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="ChangeProfilePictureString">Change Profile Picture</string>
+    <string name="save">save</string>
+    <string name="profileString">Profile</string>
+    <string name="reviewsFeedString">Reviews</string>
+    <string name="nyReviewsFeedString">My Reviews</string>
+    <string name="users_profile_default_string">User\'s Profile</string>
+    <string name="delete_string">DELETE</string>
+    <string name="logout_string">Logout</string>
 </resources>
