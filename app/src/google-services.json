@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "499724888421",
+    "firebase_url": "https://colman-test-default-rtdb.firebaseio.com",
+    "project_id": "colman-test",
+    "storage_bucket": "colman-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499724888421:android:b000a0dd11de8caee6198c",
+        "android_client_info": {
+          "package_name": "com.app.moviecenter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArNdoicshtaFS1OxEMSo0GXuN4I1Giuz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
