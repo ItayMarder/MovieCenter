@@ -109,6 +109,8 @@ class Model private constructor() {
 
     fun deleteReview(reviewId: String, callback: () -> Unit) {
         firebaseModel.deleteReview(reviewId) {
+            refreshAllReviews()
+            refreshMyReviews()
             callback()
         }
     }
