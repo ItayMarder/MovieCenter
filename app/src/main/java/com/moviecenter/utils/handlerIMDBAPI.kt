@@ -8,14 +8,6 @@ import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URI
 import java.net.URL
-
-@Serializable
-data class ApiResponse(
-    @SerialName("ok") val ok: Boolean,
-    @SerialName("description") val description: List<String>
-)
-
-
 suspend fun getMovieId(movieName: String): String {
     try {
         val encodedName = java.net.URLEncoder.encode(movieName, "utf-8")
@@ -23,25 +15,13 @@ suspend fun getMovieId(movieName: String): String {
 
         val url: URL = URI.create(apiUrl).toURL()
 
-        val responseCode: Int = withContext(Dispatchers.IO) {
-            (url.openConnection() as HttpURLConnection).apply {
-                requestMethod = "GET"
-            }.responseCode
+        val res = withContext(Dispatchers.IO) {
+            (url.openConnection() as HttpURLConnection).inputStream.bufferedReader().readText()
         }
 
-        if (responseCode == HttpURLConnection.HTTP_OK) {
+        val movieJSONObj = JSONObject(res).getJSONArray("description").getJSONObject(0)
 
-            val res = withContext(Dispatchers.IO) {
-                (url.openConnection() as HttpURLConnection).inputStream.bufferedReader().readText()
-            }
-
-            val movieJSONObj = JSONObject(res).getJSONArray("description").getJSONObject(0)
-
-            return movieJSONObj.getString("#IMDB_ID")
-
-        } else {
-            return ""
-        }
+        return movieJSONObj.getString("#IMDB_ID")
     } catch (e: Exception) {
         return ""
     }
@@ -52,25 +32,12 @@ suspend fun getMovieRank(movieId: String): Double {
         val apiUrl = "https://search.imdbot.workers.dev/?tt=$movieId"
 
         val url: URL = URI.create(apiUrl).toURL()
-
-        val responseCode: Int = withContext(Dispatchers.IO) {
-            (url.openConnection() as HttpURLConnection).apply {
-                requestMethod = "GET"
-            }.responseCode
+        val res = withContext(Dispatchers.IO) {
+            (url.openConnection() as HttpURLConnection).inputStream.bufferedReader().readText()
         }
 
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-
-            val res = withContext(Dispatchers.IO) {
-                (url.openConnection() as HttpURLConnection).inputStream.bufferedReader().readText()
-            }
-
-            return JSONObject(res).getJSONObject("short")
-                .getJSONObject("aggregateRating").getDouble("ratingValue")
-
-        }
-
-        return 0.0
+        return JSONObject(res).getJSONObject("short")
+            .getJSONObject("aggregateRating").getDouble("ratingValue")
     } catch (e: Exception) {
         return 0.0
     }

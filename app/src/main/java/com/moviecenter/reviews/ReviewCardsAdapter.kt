@@ -34,6 +34,7 @@ class ReviewCardsAdapter(private val reviews: List<Review>) :
         val description: TextView = itemView.findViewById(R.id.card_description)
         val rating: TextView = itemView.findViewById(R.id.card_rating)
         val deleteCardButton: Button = itemView.findViewById(R.id.delete_card_button)
+        val userEmail: TextView = itemView.findViewById(R.id.card_user_email)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
@@ -59,6 +60,7 @@ class ReviewCardsAdapter(private val reviews: List<Review>) :
         holder.type.text = review.genreType.toString()
         holder.description.text = review.description
         holder.rating.text = "IMDB Rating: ${review.rating}"
+        holder.userEmail.text = "${review.userEmail}"
         handleObjectPulling(holder, userEmail, review)
         handleClicksCard(holder, position)
     }

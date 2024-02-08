@@ -109,6 +109,9 @@ class Model private constructor() {
 
     fun deleteReview(reviewId: String, callback: () -> Unit) {
         firebaseModel.deleteReview(reviewId) {
+            executor.execute {
+                database.reviewDao().delete(reviewId)
+            }
             refreshAllReviews()
             refreshMyReviews()
             callback()

@@ -20,8 +20,8 @@ interface ReviewDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg reviews: Review)
 
-    @Delete
-    fun delete(review: Review)
+    @Query("DELETE FROM Review WHERE id =:reviewId")
+    fun delete(reviewId: String)
 
     @Query("SELECT * FROM Review WHERE id =:id")
     fun getReviewById(id: String): LiveData<Review>

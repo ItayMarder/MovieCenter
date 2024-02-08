@@ -29,21 +29,32 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
+            android:layout_width="375dp"
+            android:layout_height="75dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/user_profile_string"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/users_profile_default_string"
-                android:textSize="25sp"
                 android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/user_email_string"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/user_email_default_string"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
 
@@ -111,6 +122,12 @@
                 android:visibility="invisible"
                 app:backgroundTint="@color/black" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
 
     </LinearLayout>

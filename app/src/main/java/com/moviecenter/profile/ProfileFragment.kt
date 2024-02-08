@@ -33,6 +33,7 @@ class ProfileFragment : ReviewBaseFragment(), ReviewCardsAdapter.OnReviewItemCli
     private lateinit var addNewReviewButton: FloatingActionButton
     private lateinit var editProfileButton: FloatingActionButton
     private lateinit var userProfileString: TextView
+    private lateinit var userEmailString: TextView
     private lateinit var firstNameInput: TextInputLayout
     private lateinit var lastNameInput: TextInputLayout
     private lateinit var changeProfilePictureButton: Button
@@ -57,6 +58,7 @@ class ProfileFragment : ReviewBaseFragment(), ReviewCardsAdapter.OnReviewItemCli
             initViews(view)
         }
         initializeUserName()
+        initializeUserEmail()
         handleChangeProfilePicture()
         handleAddNewClick()
         handleEditProfileClick()
@@ -72,6 +74,7 @@ class ProfileFragment : ReviewBaseFragment(), ReviewCardsAdapter.OnReviewItemCli
 
     private fun initViews(view: View) {
         userProfileString = view.findViewById(R.id.user_profile_string)
+        userEmailString = view.findViewById(R.id.user_email_string)
         changeProfilePictureButton = view.findViewById(R.id.change_profile_picture_button)
         progressBarProfilePhoto = view.findViewById(R.id.progress_bar_profile_photo)
         profileImage = view.findViewById(R.id.profile_image)
@@ -121,7 +124,11 @@ class ProfileFragment : ReviewBaseFragment(), ReviewCardsAdapter.OnReviewItemCli
     }
 
     private fun initializeUserName() {
-        "${sharedViewModel.userMetaData.firstName}'s Profile".also { userProfileString.text = it }
+        "${sharedViewModel.userMetaData.firstName}${sharedViewModel.userMetaData.lastName?: ""}'s Profile".also { userProfileString.text = it }
+    }
+
+    private fun initializeUserEmail() {
+        sharedViewModel.userMetaData.email.also { userEmailString.text = it }
     }
 
     private val pickImageContract =
@@ -155,6 +162,7 @@ class ProfileFragment : ReviewBaseFragment(), ReviewCardsAdapter.OnReviewItemCli
                     sharedViewModel.userMetaData.lastName = result.lastName
                     showDialogResponse("Name changed successfully")
                     initializeUserName()
+                    initializeUserEmail()
                     profileViewModel.changeNameResult.removeObservers(viewLifecycleOwner)
 
                 } else {

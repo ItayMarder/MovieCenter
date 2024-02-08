@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.app.moviecenter.login.LoginFragment"
-        android:label="LoginFragment">
+        android:label="Log In">
         <action
             android:id="@+id/action_loginFragment_to_reviewsFragment"
             app:destination="@id/reviewsFragment" />
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.app.moviecenter.profile.ProfileFragment"
-        android:label="ProfileFragment">
+        android:label="My Profile">
         <action
             android:id="@+id/action_profileFragment_to_newReviewFragment"
             app:destination="@id/newReviewFragment" />
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/reviewsFragment"
         android:name="com.app.moviecenter.reviews.ReviewsFragment"
-        android:label="ReviewFragment">
+        android:label="All Reviews">
         <action
             android:id="@+id/action_profileFragment_to_newReviewFragment"
             app:destination="@id/newReviewFragment" />
@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/myReviewsFragment"
         android:name="com.app.moviecenter.reviews.MyReviewsFragment"
-        android:label="MyReviewFragment">
+        android:label="my Reviews">
         <action
             android:id="@+id/action_profileFragment_to_newReviewFragment"
             app:destination="@id/newReviewFragment" />
@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.app.moviecenter.singup.SignUpFragment"
-        android:label="SignupFragment">
+        android:label="Sign Up">
         <action
             android:id="@+id/action_signupFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -53,5 +53,5 @@
     <fragment
         android:id="@+id/newReviewFragment"
         android:name="com.app.moviecenter.reviews.NewReviewFragment"
-        android:label="NewReviewFragment" />
+        android:label="Add Review" />
 </navigation>
